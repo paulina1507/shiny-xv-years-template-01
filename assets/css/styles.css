@@ -2224,6 +2224,10 @@ body.footer-ready footer.site-footer {
     transform: scale(0.85);
     filter: blur(0.4px);
   }
+
+  #presentacion.editorial-text {
+      padding-top: 60px;
+  }
 }
 
 /* ========================================================= */
