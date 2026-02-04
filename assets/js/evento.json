@@ -202,14 +202,14 @@
     "nota": "Por favor confirma tu asistencia.",
 
     "pase": {
-      "enabled": false,
-      "cantidad": null,
+      "enabled": true,
+      "cantidad": 4,
       "label": ""
     },
 
     "mesa": {
-      "enabled": false,
-      "numero": null,
+      "enabled": true,
+      "numero": 8,
       "label": ""
     },
 
