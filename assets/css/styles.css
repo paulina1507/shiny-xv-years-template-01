@@ -2124,7 +2124,10 @@ body.footer-ready footer.site-footer {
 /* ========================================================= */
 /* SELLO                                                   */
 /* ========================================================= */
-
+  #presentacion.editorial-text {
+      padding-top: 60px;
+  
+}
 .seal {
   position: absolute;
   inset: 0;
