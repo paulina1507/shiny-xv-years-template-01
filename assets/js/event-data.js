@@ -1,4 +1,4 @@
-fetch("./assets/js/evento.json")
+fetch("assets/js/evento.json")
   .then((res) => res.json())
   .then((data) => {
     /* ================= GLOBAL (PRIMERO SIEMPRE) ================= */
