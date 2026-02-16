@@ -4,7 +4,7 @@
 :root {
   --terracota: #c66a44;
   --arena: hsl(29, 41%, 88%);
-  --rosa: #E491A6;
+  --rosa: #e491a6;
   --rosa-pastel: #f0d9e1;
   --blanco: #ffffff;
   --negro: #2e2e2e;
@@ -13,10 +13,10 @@
   --verde-olivo: #6f7469;
   --verde-gris: #a2af9c;
   --shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
-  --envelope-color: #E89EB8;
-  --gold-primary: #9C7A2F;   
-  --gold-soft: #B89A5A;     
-  --text-soft: #6B6B6B;      
+  --envelope-color: #e89eb8;
+  --gold-primary: #9c7a2f;
+  --gold-soft: #b89a5a;
+  --text-soft: #6b6b6b;
 }
 
 * {
@@ -102,7 +102,9 @@ body.content-ready .site-root {
 
   opacity: 0;
   transform: translateY(6px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .editorial-text.visible {
@@ -123,7 +125,9 @@ body.content-ready .site-root {
   z-index: 1000;
   opacity: 0;
   transform: translateY(-12px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 /* cuando el contenido está listo */
@@ -252,7 +256,9 @@ body.content-ready .navbar {
   z-index: -1;
   opacity: 0;
   filter: blur(8px);
-  transition: opacity 1.2s ease, filter 1.2s ease;
+  transition:
+    opacity 1.2s ease,
+    filter 1.2s ease;
 }
 
 .hero-bg::after {
@@ -288,7 +294,7 @@ body.content-ready .navbar {
 
 .hero-names {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(34px, 7vw, 78px); 
+  font-size: clamp(34px, 7vw, 78px);
   color: var(--gold-primary);
   letter-spacing: 1px; /* más fino */
   font-weight: 400;
@@ -311,9 +317,9 @@ body.content-ready .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px; 
-  margin-top: 28px; 
-  padding: 0 24px;      
+  gap: 14px;
+  margin-top: 28px;
+  padding: 0 24px;
   animation: heroFadeIn 1.6s ease forwards 0.9s;
 }
 
@@ -402,44 +408,6 @@ body.content-ready .navbar {
   display: none !important;
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    height: 90vh;
-    padding-top: clamp(140px, 40vh, 300px);
-  }
-
-  .hero-names {
-    font-size: clamp(40px, 12vw, 72px);
-    transform: translateY(10px);
-  }
-
-  .hero-count {
-    transform: translateY(20px);
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    height: 88vh;
-    padding-top: clamp(120px, 42vh, 280px);
-  }
-
-  .hero-names {
-    font-size: clamp(38px, 14vw, 64px);
-  }
-
-  .hero-count div span {
-    font-size: clamp(26px, 10vw, 40px);
-  }
-
-  .hero-count small {
-    font-size: clamp(11px, 3.2vw, 14px);
-  }
-
-  .sep {
-    font-size: clamp(22px, 10vw, 32px);
-  }
-}
 /* ========================================================= */
 /* ARCO PRESENTACIÓN – versión premium y alineada */
 /* ========================================================= */
@@ -502,7 +470,7 @@ body.content-ready .navbar {
 /* ========================================================= */
 
 .hero-arco {
-  padding-top: 140px; /* separación del navbar */
+  padding-top: 70px; /* separación del navbar */
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -596,14 +564,41 @@ body.content-ready .navbar {
   inset: auto;
 }
 
+@media (max-width: 768px) {
+  .hero-arco {
+    padding-top: 60px; /* solo respiro del navbar */
+  }
+
+  .hero-names {
+    font-size: clamp(42px, 12vw, 58px);
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+  }
+  
+  /* CONTADOR MÁS LEGIBLE */
+  .hero-count div span {
+    font-size: clamp(26px, 9vw, 26px);
+    font-weight: 600;
+  }
+
+  .hero-count small {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .sep {
+    font-size: 24px;
+  }
+}
+
 /* ========================================================= */
 /* FIX REAL: HERO EN ARCO                                    */
 /* ========================================================= */
 
 .arco-base.arco-hero {
   background: transparent !important; /* ❌ elimina rectángulo rosa */
-  overflow: hidden !important;         /* 🔑 activa el recorte real */
-  padding: 0 !important;               /* el hero maneja su espacio */
+  overflow: hidden !important; /* 🔑 activa el recorte real */
+  padding: 0 !important; /* el hero maneja su espacio */
 }
 
 .acuarela-left,
@@ -714,18 +709,30 @@ body.content-ready .navbar {
 /* ================= MOVIMIENTO SUTIL ================= */
 
 @keyframes drift {
-  0%   { transform: translateY(0) rotate(var(--r, 0deg)); }
-  50%  { transform: translateY(-12px) rotate(var(--r, 0deg)); }
-  100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  0% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-12px) rotate(var(--r, 0deg));
+  }
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
 }
 
 #presentacion .butterfly {
   animation: drift 14s ease-in-out infinite;
 }
 
-#presentacion .b1 { animation-duration: 16s; }
-#presentacion .b2 { animation-duration: 18s; }
-#presentacion .b3 { animation-duration: 20s; }
+#presentacion .b1 {
+  animation-duration: 16s;
+}
+#presentacion .b2 {
+  animation-duration: 18s;
+}
+#presentacion .b3 {
+  animation-duration: 20s;
+}
 
 /* ================= MOBILE ================= */
 
@@ -815,7 +822,6 @@ body.content-ready .navbar {
   position: relative;
   z-index: 5;
 }
-
 
 /* ========================================================= */
 /* TARJETAS DE UBICACIÓN                                     */
@@ -1038,7 +1044,8 @@ body.content-ready .navbar {
 
   background: linear-gradient(to bottom, #cc74ad, #b84e98, #b84e98);
 
-  box-shadow: 0 0 6px rgba(212, 166, 99, 0.45),
+  box-shadow:
+    0 0 6px rgba(212, 166, 99, 0.45),
     0 0 12px rgba(212, 166, 99, 0.25);
 
   transition: height 0.05s linear;
@@ -1056,7 +1063,9 @@ body.content-ready .navbar {
   opacity: 0.35;
   transform: translateY(22px);
 
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
 
 .timeline-programa .item.active {
@@ -1082,7 +1091,10 @@ body.content-ready .navbar {
   transform: translateX(-50%) scale(0.85);
   opacity: 0.5;
 
-  transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease,
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
     opacity 0.35s ease;
 
   z-index: 3;
@@ -1096,7 +1108,8 @@ body.content-ready .navbar {
   background: linear-gradient(145deg, #e769b3, #690f56);
   opacity: 1;
   transform: translateX(-50%) scale(1.35);
-  box-shadow: 0 0 12px rgba(212, 166, 99, 0.9),
+  box-shadow:
+    0 0 12px rgba(212, 166, 99, 0.9),
     0 0 24px rgba(212, 166, 99, 0.45);
 }
 
@@ -1114,8 +1127,10 @@ body.content-ready .navbar {
   opacity: 0;
   transform: translateY(18px) scale(0.96);
 
-  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s ease;
+  transition:
+    opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.35s ease;
 }
 
 .timeline-programa .item.active .icon {
@@ -1238,7 +1253,9 @@ body.content-ready .navbar {
 #vestimenta .v-content {
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
 
 #vestimenta.reveal.visible .vestimenta-formal,
@@ -1256,8 +1273,10 @@ body.content-ready .navbar {
   opacity: 0;
   transform: translateY(22px) scale(0.96);
 
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.4s ease;
 
   transition-delay: 0.22s;
   will-change: transform;
@@ -1311,7 +1330,9 @@ body.content-ready .navbar {
 
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
 
 #regalos.reveal.visible .regalos-desc {
@@ -1329,8 +1350,10 @@ body.content-ready .navbar {
   opacity: 0;
   transform: translateY(20px) scale(0.96);
 
-  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  transition:
+    opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.4s ease;
 
   will-change: transform;
 }
@@ -1417,7 +1440,9 @@ body.content-ready .navbar {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1453,7 +1478,9 @@ footer.site-footer {
   transform: translateY(40px);
   pointer-events: none;
 
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 .site-footer small {
   opacity: 0.9;
@@ -1480,7 +1507,9 @@ body.footer-ready footer.site-footer {
   perspective: 1400px;
   opacity: 1;
   backdrop-filter: blur(0px);
-  transition: opacity 1.6s ease, backdrop-filter 1.6s ease;
+  transition:
+    opacity 1.6s ease,
+    backdrop-filter 1.6s ease;
 }
 
 .envelope-overlay.fade-out {
@@ -1497,7 +1526,9 @@ body.footer-ready footer.site-footer {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
 .reveal.visible {
@@ -1508,13 +1539,17 @@ body.footer-ready footer.site-footer {
 .reveal-left {
   opacity: 0;
   transform: translateX(-20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .reveal-right {
   opacity: 0;
   transform: translateX(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .reveal-left.visible,
@@ -1526,7 +1561,9 @@ body.footer-ready footer.site-footer {
 .reveal-zoom {
   opacity: 0;
   transform: scale(0.92);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
 .reveal-zoom.visible {
@@ -1658,7 +1695,9 @@ body.footer-ready footer.site-footer {
 
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
 
 #rsvp.completed #rsvp-final {
@@ -1866,7 +1905,6 @@ body.footer-ready footer.site-footer {
   }
 }
 
-
 /* ====================================== */
 /* ICONOS TIPO SLIDE (SOLO 3 SECCIONES)   */
 /* ====================================== */
@@ -1875,7 +1913,8 @@ body.footer-ready footer.site-footer {
 #programa .icon {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
@@ -1884,7 +1923,8 @@ body.footer-ready footer.site-footer {
 #vestimenta .vestimenta-icon {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
@@ -1893,7 +1933,8 @@ body.footer-ready footer.site-footer {
 #regalos .icon {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
@@ -1928,7 +1969,9 @@ body.footer-ready footer.site-footer {
   perspective: 900px;
   overflow: hidden;
 
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.18), 0 14px 34px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 0 1px rgba(0, 0, 0, 0.18),
+    0 14px 34px rgba(0, 0, 0, 0.22);
 }
 
 /* ========================================================= */
@@ -1939,7 +1982,8 @@ body.footer-ready footer.site-footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       45deg,
       transparent 49.6%,
       rgba(0, 0, 0, 0.1) 50%,
@@ -2124,9 +2168,8 @@ body.footer-ready footer.site-footer {
 /* ========================================================= */
 /* SELLO                                                   */
 /* ========================================================= */
-  #presentacion.editorial-text {
-      padding-top: 60px;
-  
+#presentacion.editorial-text {
+  padding-top: 60px;
 }
 .seal {
   position: absolute;
@@ -2149,7 +2192,9 @@ body.footer-ready footer.site-footer {
 
   animation: sealIdle 2.6s ease-in-out infinite;
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease,
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease,
     filter 0.35s ease;
 }
 
@@ -2229,7 +2274,7 @@ body.footer-ready footer.site-footer {
   }
 
   #presentacion.editorial-text {
-      padding-top: 60px;
+    padding-top: 60px;
   }
 }
 
@@ -2254,7 +2299,9 @@ body.footer-ready footer.site-footer {
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
   z-index: 100000;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
   transform: scale(0.92);
 }
 
@@ -2303,7 +2350,9 @@ body.footer-ready .music-btn {
 .reveal-title {
   opacity: 0;
   transform: scale(0.85);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 /* ================= ESTADO VISIBLE ================= */
@@ -2315,7 +2364,6 @@ body.footer-ready .music-btn {
 }
 
 @media (min-width: 768px) {
-
   .reveal-left.visible,
   .reveal-right.visible,
   .reveal-left.is-visible,
@@ -2330,7 +2378,6 @@ body.footer-ready .music-btn {
   transform: none !important;
   visibility: visible !important;
 }
-
 
 #rsvp {
   padding-left: 0;
