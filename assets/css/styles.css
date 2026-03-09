@@ -574,7 +574,7 @@ body.content-ready .navbar {
     line-height: 1.1;
     letter-spacing: 0.5px;
   }
-  
+
   /* CONTADOR MÁS LEGIBLE */
   .hero-count div span {
     font-size: clamp(26px, 9vw, 26px);
@@ -1962,8 +1962,8 @@ body.footer-ready footer.site-footer {
 /* ========================================================= */
 
 .envelope {
-  width: 420px;
-  height: 235px;
+  width: min(92vw, 420px);
+  aspect-ratio: 420 / 235;
   position: relative;
   background: var(--rosa);
   perspective: 900px;
@@ -2036,7 +2036,7 @@ body.footer-ready footer.site-footer {
 
 /* SUPERIOR */
 .flap.top {
-  border-width: 125px 210px;
+  border-width: 118px 210px;
   border-top-color: var(--envelope-color);
   border-left-color: transparent;
   border-right-color: transparent;
@@ -2158,11 +2158,32 @@ body.footer-ready footer.site-footer {
 /* RESPONSIVE                                                */
 /* ========================================================= */
 
-@media (max-width: 480px) {
-  .envelope {
-    transform: scale(0.72);
-    transform-origin: center;
-  }
+@media (max-width:480px){
+
+.envelope{
+width:92vw;
+height:calc(92vw * 235 / 420);
+}
+
+.flap.front{
+border-width:calc(92vw * 118 / 420) calc(92vw * 210 / 420);
+}
+
+.flap.front::after{
+left:calc(-92vw * 210 / 420);
+bottom:calc(-92vw * 118 / 420);
+border-width:calc(92vw * 116 / 420) calc(92vw * 210 / 420);
+}
+
+.flap.top{
+border-width:calc(92vw * 118 / 420) calc(92vw * 210 / 420);
+}
+
+.seal img{
+width:150px;
+height:150px;
+}
+
 }
 
 /* ========================================================= */
