@@ -32,11 +32,11 @@
     </div>
 
     <!-- ================= NAVBAR ================= -->
-    <nav class="navbar reveal-title">
+    <nav class="navbar reveal-zoom">
       <div class="nav-inner">
-        <div class="logo reveal-left"></div>
+        <div class="logo reveal reveal-left"></div>
         <div class="nav-toggle" id="navToggle">☰</div>
-        <ul class="nav-menu reveal-right" id="navMenu"></ul>
+        <ul class="nav-menu reveal reveal-right" id="navMenu"></ul>
       </div>
     </nav>
 
@@ -64,7 +64,7 @@
         </div>
 
         <div class="hero-info">
-          <h1 class="hero-names reveal-title" id="hero-names"></h1>
+          <h1 class="hero-names reveal-zoom" id="hero-names"></h1>
           <div class="hero-count reveal">
             <div><span id="dias">00</span><small id="label-dias"></small></div>
             <div class="sep">·</div>
@@ -84,46 +84,52 @@
       </section>
 
       <!-- ================= PRESENTACIÓN ================= -->
-      <section id="presentacion" class="section-arco reveal">
-        <!-- 🌸 FLORES FUERA DEL ARCO -->
-        <div class="flores-deco">
-          <div class="butterflies outside">
-            <img src="assets/img/mariposa-1.svg" class="butterfly left b1" />
-            <img src="assets/img/mariposa-2.svg" class="butterfly right b2" />
-            <img src="assets/img/mariposa-1.svg" class="butterfly left b3" />
-          </div>
-        </div>
+<!-- ================= PRESENTACIÓN ================= -->
+<section id="presentacion" class="section-arco reveal">
 
-        <img src="assets/img/acuarela.svg" class="acuarela-left" />
-        <img src="assets/img/acuarela.svg" class="acuarela-right" />
+  <!-- 🌸 FLORES FUERA DEL ARCO -->
+  <div class="flores-deco">
+    <div class="butterflies outside">
+      <img src="assets/img/mariposa-1.svg" class="butterfly left b1" />
+      <img src="assets/img/mariposa-2.svg" class="butterfly right b2" />
+      <img src="assets/img/mariposa-1.svg" class="butterfly left b3" />
+    </div>
+  </div>
 
-        <div class="arco-base">
-          <h2 id="titulo-presentacion" class="arco-title reveal-title"></h2>
-          <h3 id="nombres-presentacion" class="arco-nombres reveal"></h3>
-          <p id="frase-presentacion" class="arco-frase reveal"></p>
+  <img src="assets/img/acuarela.svg" class="acuarela-left" />
+  <img src="assets/img/acuarela.svg" class="acuarela-right" />
 
-          <div class="arco-grupo reveal-left">
-            <h4 id="label-padres-novia"></h4>
-            <p id="padres-novia"></p>
-          </div>
+  <div class="arco-base">
 
-          <div class="arco-grupo reveal-right">
-            <h4 id="label-padres-novio"></h4>
-            <p id="padres-novio"></p>
-          </div>
+    <h2 id="titulo-presentacion" class="arco-title reveal reveal-left"></h2>
 
-          <div class="arco-grupo reveal">
-            <h4 id="label-padrinos"></h4>
-            <p id="padrinos"></p>
-          </div>
+    <h3 id="nombres-presentacion" class="arco-nombres reveal"></h3>
 
-          <div class="arco-img reveal">
-            <img src="assets/img/novios.svg" alt="pareja" />
-          </div>
+    <p id="frase-presentacion" class="arco-frase reveal reveal-right"></p>
 
-          <p id="texto-final-presentacion" class="reveal"></p>
-        </div>
-      </section>
+    <div class="arco-grupo reveal reveal-left">
+      <h4 id="label-padres-novia"></h4>
+      <p id="padres-novia"></p>
+    </div>
+
+    <div class="arco-grupo reveal reveal-right">
+      <h4 id="label-padres-novio"></h4>
+      <p id="padres-novio"></p>
+    </div>
+
+    <div class="arco-grupo reveal">
+      <h4 id="label-padrinos"></h4>
+      <p id="padrinos"></p>
+    </div>
+
+    <div class="arco-img reveal reveal-zoom">
+      <img id="presentacion-img" alt="imagen evento" />
+    </div>
+
+    <p id="texto-final-presentacion" class="reveal"></p>
+
+  </div>
+</section>
 
       <!-- ================= UBICACIÓN ================= -->
       <section id="ubicacion" class="section-arco reveal">
@@ -143,11 +149,11 @@
         <!-- 🏛️ ARCO (CONTENIDO REAL) -->
         <div class="arco-base ubicacion-premium">
           <div
-            class="editorial-text reveal-title"
+            class="editorial-text reveal-zoom"
             data-editorial="ubicacion"
           ></div>
 
-          <h2 id="ubicacion-titulo" class="arco-title reveal-title"></h2>
+          <h2 id="ubicacion-titulo" class="arco-title reveal-zoom"></h2>
 
           <div id="ubicacion-fecha-general" class="reveal"></div>
           <div id="ubicacion-lista" class="reveal"></div>
@@ -172,11 +178,11 @@
         <!-- 🏛️ ARCO (CONTENIDO REAL) -->
         <div class="arco-base">
           <div
-            class="editorial-text reveal-title"
+            class="editorial-text reveal-zoom"
             data-editorial="programa"
           ></div>
 
-          <h2 id="programa-titulo" class="arco-title reveal-title"></h2>
+          <h2 id="programa-titulo" class="arco-title reveal-zoom"></h2>
 
           <div id="timeline-programa" class="timeline-programa reveal"></div>
         </div>
@@ -200,19 +206,19 @@
         <!-- 🏛️ ARCO (CONTENIDO REAL) -->
         <div class="arco-base">
           <div
-            class="editorial-text reveal-title"
+            class="editorial-text reveal-zoom"
             data-editorial="vestimenta"
           ></div>
 
-          <h2 id="vestimenta-titulo" class="arco-title reveal-title"></h2>
+          <h2 id="vestimenta-titulo" class="arco-title reveal-zoom"></h2>
 
           <img id="vestimenta-icon" class="vestimenta-icon reveal" />
 
           <h3 id="vestimenta-formal" class="reveal"></h3>
 
-          <p id="vestimenta-mujeres" class="reveal-left"></p>
+          <p id="vestimenta-mujeres" class="reveal reveal-left"></p>
 
-          <p id="vestimenta-hombres" class="reveal-right"></p>
+          <p id="vestimenta-hombres" class="reveal reveal-right"></p>
         </div>
       </section>
 
@@ -234,11 +240,11 @@
         <!-- 🏛️ ARCO (CONTENIDO REAL) -->
         <div class="arco-base">
           <div
-            class="editorial-text reveal-title"
+            class="editorial-text reveal-zoom"
             data-editorial="regalos"
           ></div>
 
-          <h2 id="regalos-titulo" class="arco-title reveal-title"></h2>
+          <h2 id="regalos-titulo" class="arco-title reveal-zoom"></h2>
 
           <p class="regalos-desc reveal"></p>
 
@@ -264,11 +270,11 @@
         <!-- 🏛️ ARCO (CONTENIDO REAL) -->
         <div class="arco-base">
           <div
-            class="editorial-text reveal-title"
+            class="editorial-text reveal-zoom"
             data-editorial="galeria"
           ></div>
 
-          <h2 id="galeria-titulo" class="arco-title reveal-title"></h2>
+          <h2 id="galeria-titulo" class="arco-title reveal-zoom"></h2>
 
           <div class="carousel reveal">
             <div class="carousel-track" id="carousel-track"></div>
@@ -307,10 +313,10 @@
     <div id="rsvp-form" class="rsvp-container reveal">
 
       <div
-        class="editorial-text reveal-title"
+        class="editorial-text reveal-zoom"
         data-editorial="rsvp"
       ></div>
-      <h2 id="rsvp-form-title" class="arco-title reveal-title"></h2>
+      <h2 id="rsvp-form-title" class="arco-title reveal-zoom"></h2>
 
       <p class="rsvp-text reveal"></p>
 
@@ -348,10 +354,31 @@
   </div>
 
 </section>
-      <!-- ✅ FOOTER DENTRO DEL SITIO (SIN ROMPER NADA) -->
-      <footer class="site-footer">
-        <small id="footer-text"></small>
-      </footer>
+<footer class="site-footer">
+
+  <small id="footer-text"></small>
+
+  <div class="footer-links">
+
+    <a href="https://shiny-maker.com/" target="_blank" rel="noopener" class="footer-brand">
+      Shiny Maker
+    </a>
+
+    <a href="https://wa.me/522212706617" rel="noopener" target="_blank">
+      <img src="assets/img/wh.png" alt="WhatsApp">
+    </a>
+
+    <a href="https://www.instagram.com/shinymakerstudio" rel="noopener" target="_blank">
+      <img src="assets/img/ig.png" alt="Instagram">
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=61587591115184" rel="noopener" target="_blank">
+      <img src="assets/img/fb.png" alt="Facebook">
+    </a>
+
+  </div>
+
+</footer>
     <!-- ================= SCRIPTS ================= -->
     <script src="assets/js/envelope-open.js"></script>
     <script src="assets/js/navbar.js"></script>

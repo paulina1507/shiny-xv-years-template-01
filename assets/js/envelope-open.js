@@ -35,18 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ================= AUDIO (ARRANQUE INMEDIATO) ================= */
     if (bgSong && musicIcon) {
       bgSong.volume = 0;
-      bgSong.play().then(() => {
-        musicPlaying = true;
-        musicIcon.src = "assets/img/pause.svg";
+      bgSong
+        .play()
+        .then(() => {
+          musicPlaying = true;
+          musicIcon.src = "assets/img/pause.svg";
 
-        // fade in suave
-        let vol = 0;
-        const fade = setInterval(() => {
-          vol += 0.05;
-          bgSong.volume = Math.min(vol, 1);
-          if (vol >= 1) clearInterval(fade);
-        }, 80);
-      }).catch(() => {});
+          // fade in suave
+          let vol = 0;
+          const fade = setInterval(() => {
+            vol += 0.05;
+            bgSong.volume = Math.min(vol, 1);
+            if (vol >= 1) clearInterval(fade);
+          }, 80);
+        })
+        .catch(() => {});
     }
 
     /* feedback visual del sello */
@@ -88,6 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(() => {
         body.classList.add("content-ready");
         body.classList.add("footer-ready");
+
+        // 👉 AÑADE ESTA LÍNEA
+        window.refreshScrollAnimations?.();
 
         if (musicBtn) {
           musicBtn.style.opacity = "1";

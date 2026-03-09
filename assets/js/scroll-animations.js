@@ -1,31 +1,84 @@
 (function () {
-  let initialized = false;
 
-  function initReveals() {
-    const reveals = document.querySelectorAll(
-      ".reveal, .reveal-left, .reveal-right, .reveal-title, .reveal-zoom, .reveal-fx"
-    );
+  let observer;
 
-    if (!reveals.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("visible", "is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    reveals.forEach((el) => observer.observe(el));
+  function revealElement(el) {
+    el.classList.add("visible");
   }
 
-  document.addEventListener("event:data:ready", () => {
-    if (initialized) return;
-    initialized = true;
-    initReveals();
-  });
+  function createObserver() {
+
+    observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (!entry.isIntersecting) return;
+
+        revealElement(entry.target);
+        observer.unobserve(entry.target);
+
+      });
+
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -10% 0px"
+    });
+
+  }
+
+  function observeElement(el) {
+
+    if (el.classList.contains("visible")) return;
+
+    observer.observe(el);
+
+  }
+
+  function scanReveals(root = document) {
+
+    root.querySelectorAll(
+      ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
+    ).forEach(observeElement);
+
+  }
+
+  function init() {
+
+    createObserver();
+
+    // elementos iniciales
+    scanReveals();
+
+    // detectar contenido dinámico
+    const mutation = new MutationObserver((mutations) => {
+
+      mutations.forEach(m => {
+
+        m.addedNodes.forEach(node => {
+
+          if (node.nodeType !== 1) return;
+
+          if (
+            node.matches?.(".reveal, .reveal-left, .reveal-right, .reveal-zoom")
+          ) {
+            observeElement(node);
+          }
+
+          scanReveals(node);
+
+        });
+
+      });
+
+    });
+
+    mutation.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+
 })();

@@ -247,7 +247,7 @@ fetch("assets/js/evento.json")
         timeline.insertAdjacentHTML(
           "beforeend",
           `
-          <div class="item ${lado} reveal">
+          <div class="item ${lado} reveal reveal-${lado}">
             <img class="icon" src="assets/img/${item.icono}">
             <div class="hora">${item.hora}</div>
             <div class="texto">${item.texto}</div>
@@ -289,7 +289,7 @@ fetch("assets/js/evento.json")
         cont.insertAdjacentHTML(
           "beforeend",
           `
-          <div class="regalo-item reveal-zoom">
+          <div class="regalo-item reveal reveal-zoom">
             <img src="assets/img/${item.icono}" class="regalo-icon">
             <p class="regalo-label">${item.label}</p>
           </div>
@@ -388,6 +388,7 @@ fetch("assets/js/evento.json")
     /* ================= EVENT READY ================= */
 
     document.dispatchEvent(new Event("event:data:ready"));
+    window.refreshScrollAnimations?.();
   })
   .catch((err) => {
     console.error("Error cargando evento.json:", err);
