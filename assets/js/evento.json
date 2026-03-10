@@ -213,7 +213,7 @@
 
     "titulo": "Confirmar asistencia",
     "texto": "Por favor confirma tu asistencia",
-    "nota": "",
+    "nota": "Te agradeceremos confirmar tu asistencia antes del {{fecha_limite}}.",
 
     "pase": {
       "enabled": true,

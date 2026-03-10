@@ -1,8 +1,7 @@
 fetch("assets/js/evento.json")
   .then((res) => res.json())
   .then((data) => {
-
-    window.__EVENT_DATA__ = data;  // 👈 AGREGAR ESTA LÍNEA
+    window.__EVENT_DATA__ = data; // 👈 AGREGAR ESTA LÍNEA
 
     // ================= INVITADO (API o DEMO) =================
     const invitadoDemo = {
@@ -346,7 +345,21 @@ fetch("assets/js/evento.json")
       if (form) {
         setText("rsvp-form-title", rsvp.titulo || "");
         form.querySelector(".rsvp-text").innerHTML = rsvp.texto || "";
-        form.querySelector(".rsvp-note").innerHTML = rsvp.nota || "";
+        let nota = rsvp.nota || "";
+
+        if (rsvp.fecha_limite) {
+          const fecha = new Date(rsvp.fecha_limite);
+
+          const fechaBonita = fecha.toLocaleDateString("es-MX", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          });
+
+          nota = nota.replace("{{fecha_limite}}", fechaBonita);
+        }
+
+        form.querySelector(".rsvp-note").innerHTML = nota;
         form.querySelector(".rsvp-btn.yes").textContent =
           rsvp.botones?.si || "";
         form.querySelector(".rsvp-btn.no").textContent = rsvp.botones?.no || "";
