@@ -212,8 +212,8 @@
     "qr": { "enabled": true },
 
     "titulo": "Confirmar asistencia",
-    "texto": "Me encantaría saber si podrás acompañarme en este día tan especial.",
-    "nota": "Por favor confirma tu asistencia.",
+    "texto": "Por favor confirma tu asistencia",
+    "nota": "",
 
     "pase": {
       "enabled": true,
@@ -222,7 +222,7 @@
 
     "mesa": {
       "enabled": true,
-      "label": "Mesa asignada"
+      "label": "Mesa"
     },
 
     "botones": {
@@ -232,8 +232,8 @@
 
     "final": {
       "titulo": "¡Gracias por confirmar!",
-      "texto": "Será un honor compartir este día contigo.",
-      "firma": "Valeria"
+      "texto": "Hemos reservado estos lugares en su honor.",
+      "firma": "XV Años Valeria"
     }
   },
   "editorial": {

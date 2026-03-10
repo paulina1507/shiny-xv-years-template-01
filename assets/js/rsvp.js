@@ -19,14 +19,22 @@
     const namesEl = document.getElementById("rsvp-names");
 
     const data = window.__EVENT_DATA__;
+    const invitado = window.__INVITADO__;
+
     if (!data?.rsvp?.final) return;
+
+    // ⭐ MOSTRAR NOMBRE DESDE EL INICIO
+    const guestNameEls = document.querySelectorAll(".rsvp-guest-name");
+
+    guestNameEls.forEach((el) => {
+      if (invitado?.nombre) {
+        el.textContent = invitado.nombre;
+      }
+    });
 
     function showFinal() {
       formBox.classList.add("hidden");
       section.classList.add("completed");
-
-      const invitado = window.__INVITADO__;
-      const data = window.__EVENT_DATA__;
 
       const passLabel = document.getElementById("rsvpPassLabel");
       const passValue = document.getElementById("rsvpPassValue");
@@ -36,14 +44,15 @@
       // 🔹 PASES
       if (data?.rsvp?.pase?.enabled && invitado?.pases) {
         passLabel.textContent = data.rsvp.pase.label || "Pase para";
-        passValue.textContent = `${invitado.pases} personas`;
+        passValue.textContent =
+          invitado.pases === 1 ? "1 persona" : `${invitado.pases} personas`;
       } else {
         passLabel?.closest(".rsvp-pass-item")?.remove();
       }
 
       // 🔹 MESA
       if (data?.rsvp?.mesa?.enabled && invitado?.mesa) {
-        tableLabel.textContent = data.rsvp.mesa.label || "Mesa asignada";
+        tableLabel.textContent = data.rsvp.mesa.label || "Mesa";
         tableValue.textContent = `Mesa ${invitado.mesa}`;
       } else {
         tableLabel?.closest(".rsvp-pass-item")?.remove();
@@ -60,10 +69,8 @@
     btnNo?.addEventListener("click", showFinal);
   }
 
-  // 1️⃣ Escuchar el evento normal
   document.addEventListener("event:data:ready", initRSVP);
 
-  // 2️⃣ Fallback: si el evento ya ocurrió
   if (window.__EVENT_DATA__) {
     initRSVP();
   }

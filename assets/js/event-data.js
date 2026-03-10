@@ -1,11 +1,25 @@
 fetch("assets/js/evento.json")
   .then((res) => res.json())
   .then((data) => {
-    /* ================= GLOBAL (PRIMERO SIEMPRE) ================= */
 
-    // 🔑 Exponer el JSON ANTES de cualquier uso
-    window.__EVENT_DATA__ = data;
+    window.__EVENT_DATA__ = data;  // 👈 AGREGAR ESTA LÍNEA
 
+    // ================= INVITADO (API o DEMO) =================
+    const invitadoDemo = {
+      nombre: "Familia Pérez",
+      pases: 4,
+      mesa: 8,
+    };
+
+    // Si la API ya definió __INVITADO__, se usa.
+    // Si no, usamos el demo.
+    window.__INVITADO__ = window.__INVITADO__ ?? invitadoDemo;
+
+    /* ================= INVITADO ================= */
+
+    document.querySelectorAll(".rsvp-guest-name").forEach((el) => {
+      el.textContent = window.__INVITADO__.nombre || "";
+    });
     /* ================= 🔧 HELPERS ================= */
 
     const isEnabled = (obj) => obj?.enabled !== false;
@@ -345,14 +359,14 @@ fetch("assets/js/evento.json")
 
       if (rsvp.pase?.enabled !== false && passLabel && passValue) {
         passLabel.textContent = rsvp.pase.label || "Pase para";
-        passValue.textContent = `${rsvp.pase.cantidad} personas`;
+        passValue.textContent = `${window.__INVITADO__.pases ?? rsvp.pase.cantidad ?? 0} personas`;
       } else {
         passLabel?.closest(".rsvp-pass-item")?.remove();
       }
 
       if (rsvp.mesa?.enabled !== false && tableLabel && tableValue) {
         tableLabel.textContent = rsvp.mesa.label || "Mesa asignada";
-        tableValue.textContent = `Mesa ${rsvp.mesa.numero}`;
+        tableValue.textContent = `Mesa ${window.__INVITADO__.mesa ?? rsvp.mesa.numero ?? "-"}`;
       } else {
         tableLabel?.closest(".rsvp-pass-item")?.remove();
       }
