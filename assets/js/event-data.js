@@ -112,8 +112,8 @@ fetch("assets/js/evento.json")
       }
 
       const heroBg = document.querySelector(".hero-bg");
-      if (heroBg && hero.background) {
-        heroBg.style.backgroundImage = `url('assets/img/${hero.background}')`;
+      if (heroBg && data.media?.hero_background) {
+        heroBg.style.backgroundImage = `url('assets/img/${data.media.hero_background}')`;
       }
 
       const labels = hero.countdown_labels;
@@ -165,7 +165,9 @@ fetch("assets/js/evento.json")
       setText("texto-final-presentacion", p.texto_final || "");
 
       const img = document.querySelector(".arco-img img");
-      if (img && p.imagen) img.src = `assets/img/${p.imagen}`;
+      if (img && data.media?.presentacion) {
+        img.src = `assets/img/${data.media.presentacion}`;
+      }
     } else {
       removeSection("presentacion");
     }
@@ -266,7 +268,9 @@ fetch("assets/js/evento.json")
       setText("vestimenta-titulo", v.titulo);
 
       const icon = document.getElementById("vestimenta-icon");
-      if (icon && v.icono) icon.src = `assets/img/${v.icono}`;
+      if (icon && data.media?.vestimenta_icon) {
+        icon.src = `assets/img/${data.media.vestimenta_icon}`;
+      }
 
       setText("vestimenta-formal", v.formal);
       setHTML("vestimenta-mujeres", v.mujeres);
@@ -309,7 +313,7 @@ fetch("assets/js/evento.json")
       const track = document.getElementById("carousel-track");
       track.innerHTML = "";
 
-      g.imagenes.forEach((img) => {
+      (data.media?.galeria || []).forEach((img) => {
         track.insertAdjacentHTML(
           "beforeend",
           `<img src="assets/img/${img}" class="carousel-img">`,

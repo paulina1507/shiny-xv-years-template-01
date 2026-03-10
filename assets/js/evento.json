@@ -1,4 +1,15 @@
 {
+  "schema_version": 1,
+  "slug": "xv-valeria-2026",
+  "template": "xv-arco-princess",
+  "tipo_evento": "xv",
+  "paquete": "armonia",
+  "evento": {
+    "fecha": "2026-12-20T16:00:00",
+    "host": {
+      "nombre": "Valeria"
+    }
+  },
   "meta": {
     "title": "Mis XV Años | Valeria",
     "description": "Acompáñanos a celebrar mis XV años",
@@ -10,7 +21,12 @@
     "type": "text",
     "value": "Mis XV Años"
   },
-
+  "media": {
+    "hero_background": "quinceañera.png",
+    "presentacion": "princesa.svg",
+    "vestimenta_icon": "9.svg",
+    "galeria": ["gallery1.png", "gallery2.png", "gallery3.png", "gallery4.png"]
+  },
   "audio": {
     "enabled": true,
     "src": "cancion.mp3",
@@ -60,11 +76,9 @@
 
   "hero": {
     "enabled": true,
-    "background": "quinceañera.png",
     "names": {
       "festejada": "XV Valeria"
     },
-    "fecha_evento": "2026-12-20T16:00:00",
     "countdown_labels": {
       "dias": "Días",
       "horas": "Horas",
@@ -83,7 +97,6 @@
     },
     "padrinos": ["AURELIA RIVERA NIETO", "BERNARDO ORTEGA ORTIZ"],
     "texto_final": "Este día marca una nueva etapa en mi vida y me encantaría compartirlo contigo.",
-    "imagen": "princesa.svg",
     "labels": {
       "padres": "Mis Padres",
       "padrinos": "Mis Padrinos"
@@ -120,7 +133,7 @@
   "programa": {
     "enabled": true,
     "titulo": "Programa del Evento",
-    "progress_steps": [20,40,60,80,100],
+    "progress_steps": [20, 40, 60, 80, 100],
     "items": [
       {
         "hora": "16:00 hrs",
@@ -140,7 +153,7 @@
         "icono": "7.svg",
         "lado": "left"
       },
-            {
+      {
         "hora": "19:30 hrs",
         "texto": "Brindis",
         "icono": "3.svg",
@@ -164,7 +177,6 @@
   "vestimenta": {
     "enabled": true,
     "titulo": "Código de Vestimenta",
-    "icono": "9.svg",
     "formal": "FORMAL",
     "labels": {
       "mujeres": "",
@@ -186,31 +198,31 @@
 
   "galeria": {
     "enabled": true,
-    "titulo": "Galería",
-    "imagenes": [
-      "gallery1.png",
-      "gallery2.png",
-      "gallery3.png",
-      "gallery4.png"
-    ]
+    "titulo": "Galería"
   },
 
   "rsvp": {
     "enabled": true,
+    "mode": "panel",
+
+    "telefono": "522212576641",
+    "mensaje_base": "Hola, confirmo mi asistencia a los XV años de Valeria.",
+    "fecha_limite": "2026-12-10",
+
+    "qr": { "enabled": true },
+
     "titulo": "Confirmar asistencia",
     "texto": "Me encantaría saber si podrás acompañarme en este día tan especial.",
     "nota": "Por favor confirma tu asistencia.",
 
     "pase": {
       "enabled": true,
-      "cantidad": 4,
-      "label": ""
+      "label": "Pase para"
     },
 
     "mesa": {
       "enabled": true,
-      "numero": 8,
-      "label": ""
+      "label": "Mesa asignada"
     },
 
     "botones": {
@@ -258,7 +270,6 @@
       "text": "Acompáñanos en este día especial"
     }
   },
-
   "footer": {
     "enabled": true,
     "text": "Diseñado con amor por"

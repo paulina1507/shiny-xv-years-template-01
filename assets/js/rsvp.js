@@ -25,9 +25,29 @@
       formBox.classList.add("hidden");
       section.classList.add("completed");
 
-      // 🔹 mostrar pase y mesa SOLO al confirmar
-      const passInfo = section.querySelector(".rsvp-pass-info");
-      if (passInfo) passInfo.classList.remove("hidden");
+      const invitado = window.__INVITADO__;
+      const data = window.__EVENT_DATA__;
+
+      const passLabel = document.getElementById("rsvpPassLabel");
+      const passValue = document.getElementById("rsvpPassValue");
+      const tableLabel = document.getElementById("rsvpTableLabel");
+      const tableValue = document.getElementById("rsvpTableValue");
+
+      // 🔹 PASES
+      if (data?.rsvp?.pase?.enabled && invitado?.pases) {
+        passLabel.textContent = data.rsvp.pase.label || "Pase para";
+        passValue.textContent = `${invitado.pases} personas`;
+      } else {
+        passLabel?.closest(".rsvp-pass-item")?.remove();
+      }
+
+      // 🔹 MESA
+      if (data?.rsvp?.mesa?.enabled && invitado?.mesa) {
+        tableLabel.textContent = data.rsvp.mesa.label || "Mesa asignada";
+        tableValue.textContent = `Mesa ${invitado.mesa}`;
+      } else {
+        tableLabel?.closest(".rsvp-pass-item")?.remove();
+      }
 
       titleEl.textContent = data.rsvp.final.titulo || "";
       textEl.innerHTML = data.rsvp.final.texto || "";

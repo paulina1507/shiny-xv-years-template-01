@@ -6,15 +6,13 @@
     initialized = true;
 
     const data = window.__EVENT_DATA__;
-    if (!data?.hero) return;
+    if (!data) return;
 
-    // ✔ Compatible XV / BODA
-    const fecha =
-      data.hero.fecha_evento || data.hero.fecha_boda;
+    // compatible con tu nuevo esquema
+    const fechaEvento = data.evento?.fecha || data.hero?.fecha_evento;
+    if (!fechaEvento) return;
 
-    if (!fecha) return;
-
-    const targetDate = new Date(fecha);
+    const targetDate = new Date(fechaEvento);
     if (isNaN(targetDate)) return;
 
     const diasEl = document.getElementById("dias");
