@@ -65,50 +65,52 @@
 
   document.addEventListener("DOMContentLoaded", init);
 })();
-document.querySelectorAll(".section-arco").forEach((section) => {
-  const elements = section.querySelectorAll(".reveal");
+document.addEventListener("DOMContentLoaded", () => {
 
-  let visibleIndex = 0; // índice real solo de elementos animados
+  document.querySelectorAll(".section-arco").forEach((section) => {
 
-  elements.forEach((el) => {
-    // ❌ ignorar timeline, carousel o botones
-    if (
-      el.closest(".timeline-programa") ||
-      el.closest(".carousel") ||
-      el.tagName === "BUTTON"
-    )
-      return;
+    const elements = section.querySelectorAll(".reveal");
+    let visibleIndex = 0;
 
-    // delay escalonado
-    el.style.setProperty("--delay", `${visibleIndex * 120}ms`);
+    elements.forEach((el) => {
 
-    // si ya tiene animación manual no tocar
-    if (
-      el.classList.contains("reveal-left") ||
-      el.classList.contains("reveal-right") ||
-      el.classList.contains("reveal-zoom")
-    ) {
+      if (
+        el.closest(".timeline-programa") ||
+        el.closest(".carousel") ||
+        el.tagName === "BUTTON"
+      ) return;
+
+      el.style.setProperty("--delay", `${visibleIndex * 120}ms`);
+
+      if (
+        el.classList.contains("reveal-left") ||
+        el.classList.contains("reveal-right") ||
+        el.classList.contains("reveal-zoom")
+      ) {
+        visibleIndex++;
+        return;
+      }
+
+      if (el.tagName === "H1" || el.tagName === "H2") {
+        el.classList.add("reveal-zoom");
+        visibleIndex++;
+        return;
+      }
+
+      if (el.tagName === "IMG") {
+        el.classList.add("reveal-zoom");
+        visibleIndex++;
+        return;
+      }
+
+      el.classList.add(
+        visibleIndex % 2 === 0 ? "reveal-left" : "reveal-right"
+      );
+
       visibleIndex++;
-      return;
-    }
 
-    // TITULOS
-    if (el.tagName === "H1" || el.tagName === "H2") {
-      el.classList.add("reveal-zoom");
-      visibleIndex++;
-      return;
-    }
+    });
 
-    // IMÁGENES
-    if (el.tagName === "IMG") {
-      el.classList.add("reveal-zoom");
-      visibleIndex++;
-      return;
-    }
-
-    // TEXTOS alternados
-    el.classList.add(visibleIndex % 2 === 0 ? "reveal-left" : "reveal-right");
-
-    visibleIndex++;
   });
+
 });

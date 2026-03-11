@@ -665,7 +665,7 @@ body.content-ready .navbar {
   --r-y: 0;
   --r-scale: 1;
 
-  transform: translate(var(--r-x), var(--r-y)) scale(var(--r-scale));
+  transform: translate3d(var(--r-x), var(--r-y), 0) scale(var(--r-scale));
 
   transition:
     opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
